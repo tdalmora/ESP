@@ -1,0 +1,36 @@
+menu "ADS1115"
+config ADS1115_ENABLE
+    bool "Ativar o ADS115"
+
+config ADS1115_TAG
+    string "TAG"
+    default "ADS1115_1"
+
+config ADS1115_SDA
+    int "SDA"
+    default 20
+    range 10 21
+        help
+            Configuração de IO SDA para ADS1115
+
+config ADS1115_SCL
+    int "SCL"
+    default 20
+    range 10 21
+        help
+            Configuração de IO SCL para ADS1115
+
+config ADS1115_SAMPLE_RATE
+    choice 
+        bool "Selecione a taxa de amostragem"
+            default OP_1
+        config OP_1
+            bool "60"
+        config OP_2
+            bool "120"
+        config OP_3
+            bool "240"
+        config OP_4
+            bool "480"
+    endchoice
+endmenu
